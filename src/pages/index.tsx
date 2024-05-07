@@ -1,9 +1,11 @@
+import Layout from "@/components/Layout";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <Layout>
       <h1>Map Index Page</h1>
+     
       <ul>
         <li>
           <Link href="/stores">맛집 목록</Link>
@@ -27,6 +29,6 @@ export default function Home() {
           <Link href="/users/likes">찜한 맛집</Link>
         </li>
       </ul>
-    </div>
+    </Layout>
   )
 }
