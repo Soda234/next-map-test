@@ -32,18 +32,15 @@ const Map = () => {
       //상점들 데이터
 
       stores?.["DATA"].map((item) => {
-        // 마커가 표시될 위치입니다
         var markerPosition = new window.kakao.maps.LatLng(
           item.y_dnts,
           item.x_cnts
         );
 
-        // 마커를 생성합니다
         var marker = new window.kakao.maps.Marker({
           position: markerPosition,
         });
 
-        // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
       });
     });
