@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
- .navbar {
- /*  display: flex;
+.navbar {
+  /*  display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -13,60 +13,58 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   background: white; */
 
-  @apply flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white
- }
+  @apply flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white;
+}
 
- .navbar_button {
-  @apply hidden
- 
- }
+.navbar_button {
+  @apply hidden;
+}
 
- .navbar_logo {
+.navbar_logo {
+  @apply text-blue-800 text-lg font-semibold cursor-pointer px-[18px] py-0;
+}
 
-  @apply text-blue-800 text-lg font-semibold cursor-pointer px-[18px] py-0
- }
-
- .navbar_list {
+.navbar_list {
   @apply flex gap-3 items-center px-[18px] py-0;
 }
 
 .navbar_list-item {
-    @apply cursor-pointer
-    }
- 
-  .navbar_list-item:hover {
- @apply text-gray-600
-
- 
-  }
- 
-.layout {
-  @apply pt-[52px]
+  @apply cursor-pointer;
 }
 
-  @media only screen and (max-width:600px){
+.navbar_list-item:hover {
+  @apply text-gray-600;
+}
 
-    .navbar-mobile {     
-      @apply fixed w-full text-white h-screen top-[52px] bg-blue-800;
-    }
-    .navbar_list {
-     @apply hidden
-    }
+.layout {
+  @apply pt-[52px];
+}
 
-    .navbar_button{
-      @apply block px-[18px] py-0
-    }
-
-    .navbar_list-item-mobile {
-      @apply cursor-pointer
-     }
-
-     .navbar_list-item-mobile:hover {
-      @apply text-gray-600
-       }
-
-       .navbar_list-mobile {
-        @apply flex flex-col gap-4 px-[18px] py-6
-       }
+@media only screen and (max-width: 600px) {
+  .navbar-mobile {
+    @apply fixed w-full text-white h-screen top-[52px] bg-blue-800;
+  }
+  .navbar_list {
+    @apply hidden;
   }
 
+  .navbar_button {
+    @apply block px-[18px] py-0;
+  }
+
+  .navbar_list-item-mobile {
+    @apply cursor-pointer;
+  }
+
+  .navbar_list-item-mobile:hover {
+    @apply text-gray-600;
+  }
+
+  .navbar_list-mobile {
+    @apply flex flex-col gap-4 px-[18px] py-6;
+  }
+}
+
+.infowindow {
+  @apply bg-blue-900 text-white block text-sm text-center h-6 rounded-sm px-2 leading-6;
+}
