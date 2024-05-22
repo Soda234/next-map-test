@@ -3,14 +3,14 @@ import { Dispatch, SetStateAction, useCallback, useEffect } from "react";
 
 interface MarkerPrps {
   map: any;
-  storeData: StoreType[];
+  stores: StoreType[];
   setCurrentStore: Dispatch<SetStateAction<any>>;
 }
 
-const Markers = ({ map, storeData, setCurrentStore }: MarkerPrps) => {
+const Markers = ({ map, stores, setCurrentStore }: MarkerPrps) => {
   const loadKaKaoMarkers = useCallback(() => {
     if (map) {
-      storeData.map((item) => {
+      stores?.map((item) => {
         var imageSrc = item.bizcnd_code_nm
             ? `/images/markers/${item.bizcnd_code_nm}.png`
             : `/images/markers/default.png`, // 마커이미지의 주소입니다
@@ -67,7 +67,7 @@ const Markers = ({ map, storeData, setCurrentStore }: MarkerPrps) => {
         });
       });
     }
-  }, [map, setCurrentStore, storeData]);
+  }, [map, setCurrentStore, stores]);
 
   useEffect(() => {
     loadKaKaoMarkers();
