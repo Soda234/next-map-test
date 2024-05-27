@@ -1,7 +1,7 @@
 ```bash
 #Project name
 
-맛집 찾기
+맛집 지도
 
 #Description
 
