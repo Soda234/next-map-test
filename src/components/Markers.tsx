@@ -11,8 +11,8 @@ const Markers = ({ map, stores, setCurrentStore }: MarkerPrps) => {
   const loadKaKaoMarkers = useCallback(() => {
     if (map) {
       stores?.map((item) => {
-        var imageSrc = item.bizcnd_code_nm
-            ? `/images/markers/${item.bizcnd_code_nm}.png`
+        var imageSrc = item.category
+            ? `/images/markers/${item.category}.png`
             : `/images/markers/default.png`, // 마커이미지의 주소입니다
           imageSize = new window.kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
           imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
@@ -23,10 +23,7 @@ const Markers = ({ map, stores, setCurrentStore }: MarkerPrps) => {
           imageOption
         );
 
-        var markerPosition = new window.kakao.maps.LatLng(
-          item.y_dnts,
-          item.x_cnts
-        );
+        var markerPosition = new window.kakao.maps.LatLng(item.lat, item.lng);
 
         var marker = new window.kakao.maps.Marker({
           position: markerPosition,
@@ -37,7 +34,7 @@ const Markers = ({ map, stores, setCurrentStore }: MarkerPrps) => {
 
         //마커 커서가 오버되엇을 떄 마커 위에 표시할 인포윈도우 생성
 
-        var content = `<div class="infowindow">${item.upso_nm}</div>`;
+        var content = `<div class="infowindow">${item.name}</div>`;
 
         var infowindow = new window.kakao.maps.CustomOverlay({
           position: markerPosition,

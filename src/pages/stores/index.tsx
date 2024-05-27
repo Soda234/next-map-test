@@ -14,8 +14,8 @@ const StoreListPage = ({ stores }: { stores: StoreType[] }) => {
             <div className="flex gap-x-4">
               <Image
                 src={
-                  item.bizcnd_code_nm
-                    ? `/images/markers/${item.bizcnd_code_nm}.png`
+                  item.category
+                    ? `/images/markers/${item.category}.png`
                     : `/images/markers/default.png`
                 }
                 width={40}
@@ -24,20 +24,20 @@ const StoreListPage = ({ stores }: { stores: StoreType[] }) => {
               />
               <div>
                 <div className="text-sm font-semibold leading-6 text-gray-900">
-                  {item.upso_nm}
+                  {item.name}
                 </div>
                 <div className="mt-1 text-xs font-semibold leading-5 text-gray-500">
-                  {item.upso_nm}
+                  {item.name}
                 </div>
               </div>
             </div>
             <div className="hidden sm:flex sm:flex-col sm:items-end">
               <div className="mt-1 text-xs font-semibold leading-5 text-gray-500">
-                {item.rdn_code_nm}
+                {item.address}
               </div>
               <div className="mt-1 text-xs font-semibold leading-5 text-gray-500">
-                {item.tel_no || "번호 없음"}| {item.crtfc_gbn_nm} |{" "}
-                {item.bizcnd_code_nm}
+                {item.phone || "번호 없음"}| {item.foodCertifyName} |{" "}
+                {item.category}
               </div>
             </div>
           </li>

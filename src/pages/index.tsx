@@ -1,11 +1,10 @@
-/*global kakao*/
+import { useState } from "react";
 
 import Map from "@/components/Map";
 import Markers from "@/components/Markers";
+
 import StoreBox from "@/components/StoreBox";
-import * as stores from "@/data/store_data.json";
 import { StoreType } from "@/interface";
-import { useState } from "react";
 
 export default function Home({ stores }: { stores: StoreType[] }) {
   const [map, setMap] = useState(null);
@@ -25,8 +24,10 @@ export async function getStaticProps() {
     `${process.env.NEXT_PUBLIC_API_URL}/api/stores`
   ).then((res) => res.json());
 
+  console.log("stores", stores);
+
   return {
     props: { stores },
-    revalidate: 60,
+    revalidate: 60 * 60,
   };
 }
