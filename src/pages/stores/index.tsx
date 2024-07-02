@@ -1,8 +1,16 @@
 import { StoreType } from "@/interface";
+import axios from "axios";
 import Image from "next/image";
+import { useQuery } from "react-query";
 
 const StoreListPage = ({ stores }: { stores: StoreType[] }) => {
-  console.log("stores", stores);
+  const result = useQuery("stores", async () => {
+    const { data } = await axios("/api/stores");
+    return data as StoreType[];
+  });
+
+  console.log("result", result);
+
   return (
     <div
       className="px-4 md:max-w-4xl 
@@ -48,12 +56,10 @@ const StoreListPage = ({ stores }: { stores: StoreType[] }) => {
 };
 
 export async function getServerSideProps() {
-  const stores = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/stores`
-  ).then((res) => res.json());
+  const stores = await axios(`${process.env.NEXT_PUBLIC_API_URL}/api/stores`);
 
   return {
-    props: { stores },
+    props: { stores: stores.data },
   };
 }
 

@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import * as data from "../src/data/store_data.json";
 
 const prisma = new PrismaClient();
-
+/* 
 async function seedData() {
   data?.["DATA"]?.map(async (store) => {
     const storeData = {
@@ -21,10 +21,10 @@ async function seedData() {
     });
     console.log("res", res);
   });
-}
+} */
 
 async function main() {
-  await seedData();
+  /*   await seedData(); */
 }
 
 main()
