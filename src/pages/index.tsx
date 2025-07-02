@@ -22,7 +22,6 @@ export default function Home({ stores }: { stores: StoreType[] }) {
 
 export async function getStaticProps() {
   const stores = await axios(`${process.env.NEXT_PUBLIC_API_URL}/api/stores`);
-
   console.log("stores", stores);
 
   return {
